@@ -1,6 +1,6 @@
 'use strict';
 const Sequelize = require('sequelize');
-const db = require("../db/index");
+const db = require("../index");
 
 // Require all the models
 	// Running each model (i.e. table) module (i.e. file) registers each model into our sequelize db

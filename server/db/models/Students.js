@@ -1,6 +1,6 @@
 'use strict';
 const Sequelize = require('sequelize');
-const db = require("../db/index");
+const db = require("../index");
 
 
 const Students = db.define("students", {
