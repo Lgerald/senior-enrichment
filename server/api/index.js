@@ -11,5 +11,5 @@ apiRouter.get('/hello', (req, res) => res.send({hello: 'world'}))
 
 module.exports = apiRouter;
 
-// apiRouter.use('/campus', require('./campus'));
-// router.use('/student', require('./student'));
+apiRouter.use('/campus', require('./campus'));
+apiRouter.use('/student', require('./student'));
