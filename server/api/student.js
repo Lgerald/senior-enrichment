@@ -22,7 +22,12 @@ studentsRouter.get("/:id", (req, res ,next) => {
 
 // POST
 // - new student
-
+studentsRouter.post("/", (req,res,next) =>{
+    Students.create(req.body)
+    .then(newStudent => {
+        res.json(newStudent);
+    })
+})
 // PUT
 // - updated student info for one student
 

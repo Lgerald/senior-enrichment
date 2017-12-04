@@ -21,6 +21,12 @@ campusRouter.get("/:id", (req, res, next) => {
 })
 // POST
 // - new campus
+campusRouter.post("/", (req,res,next) => {
+    Campus.create(req.body)
+    .then(newCampus => {
+        
+    })
+})
 
 
 // PUT
