@@ -3,7 +3,7 @@ const Sequelize = require('sequelize');
 const db = require("../index");
 
 
-const Campuses = db.define("campuses", {
+const Campus = db.define("campuses", {
     name: {
         type: Sequelize.STRING,
         allowNull: false
@@ -17,4 +17,4 @@ const Campuses = db.define("campuses", {
     }
 })
 
-module.exports = Campuses
+module.exports = Campus
