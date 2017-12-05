@@ -5,7 +5,7 @@ import React, { Component } from 'react';
    Also it is HILARIOUS :D Have fun!
  */
  
-export default class WinterJokes extends Component {
+export default class Jokes extends Component {
   constructor() {
     super()
     this.nextJoke = this.nextJoke.bind(this)
