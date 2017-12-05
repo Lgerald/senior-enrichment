@@ -21,17 +21,26 @@ studentsRouter.get("/:id", (req, res ,next) => {
 })
 
 // POST
-// - new student
+// - new student //ask about find or create***
 studentsRouter.post("/", (req,res,next) =>{
     Students.create(req.body)
-    .then(newStudent => {
-        res.json(newStudent);
-    })
+    .then(newStudent => res.status(201).json(newStudent))
+    .catch(next)
 })
 // PUT
 // - updated student info for one student
+studentsRouter.put("/:id", (req,res,next) => {
+    Students.update(req.body, {where: {id: req.params.id}, returning: true})
+    .then(([numrows, [updatedStudent]]) => res.status(200).json(updatedStudent))
+    .catch(next)
+})
 
 // DELETE
 // - a student
+studentsRouter.delete("/:id", (req,res,next) => {
+    Students.destroy({where: {id: req.params.id}, returning: true})
+    .then((numrows, destroyedStudent) => res.json(`you just deleted student ${req.params.id}`))
+    .catch(next)
+})
 
 module.exports = studentsRouter

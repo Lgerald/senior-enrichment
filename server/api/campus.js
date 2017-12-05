@@ -20,19 +20,28 @@ campusRouter.get("/:id", (req, res, next) => {
         .catch(next)
 })
 // POST
-// - new campus
+// - new campus //ask about find or create***
 campusRouter.post("/", (req,res,next) => {
     Campus.create(req.body)
-    .then(newCampus => {
-        
-    })
+    .then(newCampus => res.status(201).json(newCampus))
+    .catch(next)
 })
 
 
 // PUT
 // - updated campus info for one campus
+campusRouter.put("/:id", (req,res,next) => {
+    Campus.update(req.body, {where: {id: req.params.id}, returning: true})
+    .then(([numrows, [updatedCampus]]) => res.status(200).json(updatedCampus))
+    .catch(next)
+})
 
 // DELETE
 // - a campus
+campusRouter.delete("/:id", (req,res,next) => {
+    Campus.destroy({where: {id: req.params.id}, returning: true})
+    .then((numrows, destroyedCampus) => res.json(`You just deleted campus ${req.params.id}`))
+    .catch(next)
+})
 
 module.exports = campusRouter
