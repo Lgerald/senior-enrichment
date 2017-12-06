@@ -6,18 +6,21 @@ import { Link, withRouter } from 'react-router-dom'
 
 
 export const SingleStudent = (props) => {
-    //console.log(props)
-    const { students } = props
+    console.log(props)
+    const { students, campus } = props
     const routeId = Number(props.match.params.studentId)
 
-    const filteredStudent = students.filter(s => s.id === routeId).map(student => student)
+    const filteredStudent = students.filter(s => s.id === routeId)
+ 
 
     return (
     <div>
         { filteredStudent.map(student => {
             return (
- 
-                <h1 key={student.id}>name: {student.name}</h1>
+                <div className="StudentProfile" key={student.id}>
+                <h1>name: {student.name}</h1>
+                <h2>campus: {(campus.filter(camp => camp.id === student.campusId)).map(campus => campus.name)} </h2>
+                </div>
 
 
                     ) 
@@ -29,9 +32,10 @@ export const SingleStudent = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    //console.log(state)
+
     return {
-        students: state.students
+        students: state.students,
+        campus: state.campus
     }
 }
 
