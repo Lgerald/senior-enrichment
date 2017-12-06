@@ -5,7 +5,7 @@ const {Campus, Students} = require('./db/models')
 db.sync({force: true})
 .then(() => {
     return Campus.bulkCreate([
-        { name: "Clasic", imageUrl: "https://vignette.wikia.nocookie.net/nekoatsume/images/d/df/Classic_Style.png/revision/latest?cb=20151107131336"},
+        { name: "Classic", imageUrl: "https://vignette.wikia.nocookie.net/nekoatsume/images/d/df/Classic_Style.png/revision/latest?cb=20151107131336"},
         { name: "Zen", imageUrl: "https://vignette.wikia.nocookie.net/nekoatsume/images/9/9e/Zen_style.png/revision/latest?cb=20151107131540"},
         { name: "Western", imageUrl: "https://vignette.wikia.nocookie.net/nekoatsume/images/a/aa/Western_style.png/revision/latest?cb=20151107132056"},
         { name: "Modern", imageUrl: "https://vignette.wikia.nocookie.net/nekoatsume/images/a/ac/Modern_style.png/revision/latest?cb=20151107131922"},

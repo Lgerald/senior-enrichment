@@ -41,6 +41,6 @@ studentsRouter.delete("/:id", (req,res,next) => {
     Students.destroy({where: {id: req.params.id}, returning: true})
     .then((numrows, destroyedStudent) => res.json(`you just deleted student ${req.params.id}`))
     .catch(next)
-})
+})//to show whats been destoryed, you can refer to whatever on req.body
 
 module.exports = studentsRouter

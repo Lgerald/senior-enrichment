@@ -26,6 +26,10 @@ campusRouter.post("/", (req,res,next) => {
     .then(newCampus => res.status(201).json(newCampus))
     .catch(next)
 })
+/*to properly eager load:
+in another then:
+    return model.findbyid(thing {include {}})
+*/
 
 
 // PUT

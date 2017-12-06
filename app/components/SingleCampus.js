@@ -6,13 +6,12 @@ export const SingleCampus = (props) => {
     const { campus } = props
     const routeId = Number(props.match.params.campusId)
     const filteredCampus = campus.filter(c => c.id === routeId)
+    console.log("filtered campus", filteredCampus)
 
 
     return (
         <div>
-        <ul>
-            {filteredCampus.map(campus => <li key={campus.id}>{campus.name}</li>)}
-        </ul>
+            {filteredCampus.map(campus => <h1 key={campus.id}>{campus.name}</h1>)}
         </div>
     )
 
