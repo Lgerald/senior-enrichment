@@ -30,7 +30,7 @@ export default class root extends Component {
         <div>
            <Navbar />
               <switch>
-                <Route path="/" component={home} />
+                <Route exact path="/" component={home} />
                 <Route exact path="/campus" component={AllCampuses}/>
                 <Route path="/campus/:campusId" component={SingleCampus} />
                 <Route exact path="/students" component={AllStudents} />
