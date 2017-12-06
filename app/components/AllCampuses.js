@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
 
-export default class AllCampuses extends Component {
-    constructor() {
-        super()
-        this.state = {}
+// export default AllCampuses = (props) => {
 
-    }
+//         return (
+//             <div>
+//                 {
 
-    render() {
+//                 }
+//             </div>
+//         )
 
 
-    }
-}
+// }
