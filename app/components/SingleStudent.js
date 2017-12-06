@@ -1,25 +1,37 @@
 import React, { Component } from 'react'
 import store, { getStudent } from '../store'
 import { connect } from 'react-redux'
+import { Link, withRouter } from 'react-router-dom'
+
 
 
 export const SingleStudent = (props) => {
-    console.log(props)
-    const { student } = props
+    //console.log(props)
+    const { students } = props
     const routeId = Number(props.match.params.studentId)
-    const filteredStudent = student.filter(s => s.id === routeId)
+
+    const filteredStudent = students.filter(s => s.id === routeId).map(student => student)
 
     return (
-        <div>
-            {filteredStudent.map(student => <h1 key={student.id}>{student.name}</h1>)}
-        </div>
+    <div>
+        { filteredStudent.map(student => {
+            return (
+ 
+                <h1 key={student.id}>name: {student.name}</h1>
+
+
+                    ) 
+                
+                })
+        }
+    </div>
     )
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
+    //console.log(state)
     return {
-        student: state.students
+        students: state.students
     }
 }
 
@@ -33,6 +45,10 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-const singleStudentContainer = connect(mapStateToProps, mapDispatchToProps)(SingleStudent)
+const singleStudentContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(SingleStudent))
 
 export default singleStudentContainer
+
+
+
+

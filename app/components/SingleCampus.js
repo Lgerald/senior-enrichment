@@ -6,7 +6,7 @@ export const SingleCampus = (props) => {
     const { campus } = props
     const routeId = Number(props.match.params.campusId)
     const filteredCampus = campus.filter(c => c.id === routeId)
-    console.log("filtered campus", filteredCampus)
+    //console.log("filtered campus", filteredCampus)
 
 
     return (

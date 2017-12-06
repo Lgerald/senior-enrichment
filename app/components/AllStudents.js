@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import store, { getStudents } from '../store'
 import { connect } from 'react-redux'
+import { Link, withRouter } from 'react-router-dom'
 
 
 export const AllStudents = (props) => {
@@ -11,7 +12,9 @@ export const AllStudents = (props) => {
             {
                 students.map(student => {
                     return (
-                        <li key={student.id}>{student.name}</li>
+                        <li key={student.id}>
+                        <Link to={`/students/${student.id}`}>{student.name}</Link>
+                        </li>
                     )
                 })
             }
