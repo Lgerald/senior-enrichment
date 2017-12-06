@@ -6,6 +6,7 @@ import AllStudents from './AllStudents'
 import SingleStudent from './SingleStudent'
 import home from './home'
 import Navbar from './navbar'
+import store, { fetchStudents, fetchCampuses } from '../store';
 
 /* The code below does NOT relate to your project.
    This code is just a nice BIG example of how you can make a component.
@@ -13,10 +14,12 @@ import Navbar from './navbar'
  */
  
 export default class root extends Component {
-  constructor() {
-    super()
-    this.state = {}
+  componentDidMount () {
+    const campusThunk = fetchCampuses()
+    const studentThunk = fetchStudents()
 
+    store.dispatch(campusThunk)
+    store.dispatch(studentThunk)
   }
 
   render() {

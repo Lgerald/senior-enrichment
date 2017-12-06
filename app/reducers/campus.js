@@ -34,7 +34,7 @@ export function postCampus(campus, history) {
         .then(newCampus => {
             const action = getCampus(newCampus)
             dispatch(action)
-            history.push(`${newCampus.id}`)
+            history.push(`/${newCampus.id}`)
         })
     }
 }
