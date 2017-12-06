@@ -4,6 +4,7 @@ import AllCampuses from './AllCampuses';
 import SingleCampus from './SingleCampus';
 import AllStudents from './AllStudents';
 import SingleStudent from './SingleStudent';
+import home from './home'
 
 /* The code below does NOT relate to your project.
    This code is just a nice BIG example of how you can make a component.
@@ -20,21 +21,17 @@ export default class root extends Component {
   render() {
  
     return (
-      <h1>HELLO WORLD</h1>
+    <div>
+        <Router>
+          <switch>
+            <Route path="/" component={home} />
+            <Route exact path="/campus" component={AllCampuses}/>
+            <Route path="/campus/:campusId" component={SingleCampus} />
+            <Route exact path="/students" component={AllStudents} />
+            <Route path="/students/:studentId" component={SingleStudent} />
+          </switch>
+        </Router>
+    </div>
     )
   }
 }
-
-
-// <Router>
-//   <switch>
-//     <Route exact path="/campus" component={AllCampuses}/>
-//     <Route path="/campus/:campusId" component={SingleCampus} />
-//     <Route exact path="/students" component={AllStudents} />
-//     <Route path="/students/:studentId" component={SingleStudent} />
-    
-
-
-//   </switch>
-
-// </Router>
