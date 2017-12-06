@@ -10,6 +10,6 @@ export default class AllStudents extends Component {
 
     render() {
 
-        return ()
+
     }
 }

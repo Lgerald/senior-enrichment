@@ -9,6 +9,6 @@ export default class SingleCampus extends Component {
 
     render() {
 
-        return ()
+
     }
 }

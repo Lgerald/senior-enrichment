@@ -9,6 +9,6 @@ export default class AllCampuses extends Component {
 
     render() {
 
-        return ()
+
     }
 }

@@ -10,6 +10,5 @@ export default class SingleStudent extends Component {
 
     render() {
 
-        return ()
     }
 }

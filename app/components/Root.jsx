@@ -20,19 +20,21 @@ export default class root extends Component {
   render() {
  
     return (
-      <Router>
-        <switch>
-          <Route exact path="/campus" component={AllCampuses}/>
-          <Route path="/campus/:campusId" component={SingleCampus} />
-          <Route exact path="/students" component={AllStudents} />
-          <Route path="/students/:studentId" component={SingleStudent} />
-          
-
-
-        </switch>
-
-      </Router>
+      <h1>HELLO WORLD</h1>
     )
   }
 }
 
+
+// <Router>
+//   <switch>
+//     <Route exact path="/campus" component={AllCampuses}/>
+//     <Route path="/campus/:campusId" component={SingleCampus} />
+//     <Route exact path="/students" component={AllStudents} />
+//     <Route path="/students/:studentId" component={SingleStudent} />
+    
+
+
+//   </switch>
+
+// </Router>
