@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import store, { getCampus, getStudents } from '../store'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 export const SingleCampus = (props) => {
     const { campus, students } = props
     const routeId = Number(props.match.params.campusId)
     const filteredCampus = campus.find(c => c.id === routeId)
     const filteredStudents = students.filter(s => s.campusId === routeId)
-    console.log("filtered campus", filteredCampus)
     return (
         <div>
             {
@@ -20,7 +20,7 @@ export const SingleCampus = (props) => {
                 <ul>
                     {
                     filteredStudents &&
-                    filteredStudents.map(student => <li key={student.id}>{student.name}</li>)
+                    filteredStudents.map(student => <li key={student.id}><Link to={`/students/${student.id}`}>{student.name}</Link></li>)
                     }
                 </ul>
             </div>

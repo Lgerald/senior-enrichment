@@ -10,7 +10,7 @@ const Campus = db.define("campuses", {
     },
     imageUrl: {
         type: Sequelize.STRING,
-        defaultValue: "https://vignette.wikia.nocookie.net/nekoatsume/images/d/df/Classic_Style.png/revision/latest?cb=20151107131336"
+        defaultValue: "http://www.mobygames.com/images/covers/l/316950-neko-atsume-kitty-collector-ipad-front-cover.png"
     },
     description: {
         type: Sequelize.TEXT
