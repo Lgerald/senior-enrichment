@@ -26,7 +26,7 @@ export const SingleCampus = (props) => {
                 </ul>
             </div>
             }
-            <EditCampus />
+            <EditCampus campus={filteredCampus && filteredCampus}/>
         </div>
     )
 

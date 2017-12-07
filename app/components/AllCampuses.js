@@ -17,7 +17,6 @@ export const AllCampuses = (props) => {
                             <Link to={`/campus/${campus.id}`}>{campus.name}</Link>
                             </li>
                        )
-
                    }) 
                 }
                 </ul>

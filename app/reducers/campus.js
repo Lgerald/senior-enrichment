@@ -3,7 +3,7 @@ import axios from "axios"
 
 const GET_CAMPUS = "GET_CAMPUS"
 const GET_CAMPUSES = "GET_CAMPUSES"
-// const EDIT_CAMPUS = "EDIT_CAMPUS"
+const EDIT_CAMPUS = "EDIT_CAMPUS"
 
 
 
@@ -17,10 +17,10 @@ export function getCampuses(campuses) {
     return action
 }
 
-// export function editCampus(campus) {
-//     const action = {type: EDIT_CAMPUS, campus}
-//     return action
-// }
+export function editCampus(campus) {
+    const action = {type: EDIT_CAMPUS, campus}
+    return action
+}
 
 export function fetchCampuses() {
     return function thunk(dispatch) {
@@ -47,12 +47,14 @@ export function postCampus(campus, history) {
     }
 }
 
-export function editCampusRequest(campus) {
+export function editCampusRequest(campusId, campus) {
     return function thunk(dispatch) {
     axios.put(`/api/campus/${campusId}`, campus)
     .then(res => res.data)
     .then(editedCampus => {
-        const action = getCampus(editedCampus)
+        const action = editCampus(editedCampus)//need a edit action jk cant just get it
+        // could use own props to get id match,.params.id instead
+
         dispatch(action)
         history.push(`${editedCampus.id}`)
     })
@@ -68,8 +70,12 @@ function campusReducer(state = [], action) {
             return [...state.campuses, action.campus]
         case GET_CAMPUSES:
             return action.campuses
-        // case EDIT_CAMPUS:
-        //     return [...state.campuses, action.campus]
+        case EDIT_CAMPUS:
+            return [state.map(update => {
+                    if (update.id === action.campus.id) {
+                        return action.campus
+                    }
+                    })]
         default:
             return state
     }
