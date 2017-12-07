@@ -15,11 +15,14 @@ studentsRouter.get("/", (req,res,next) => {
 })
 // - a student by id
 studentsRouter.get("/:id", (req, res ,next) => {
-    Students.findById(req.params.id)
+    Students.findById(req.params.id, {include: [{all:true}]})
     .then(student => res.status(200).json(student))
     .catch(next)
 })
-
+/*to properly eager load:
+in another then:
+    return model.findbyid(thing {include {}})
+*/
 // POST
 // - new student //ask about find or create***
 studentsRouter.post("/", (req,res,next) =>{

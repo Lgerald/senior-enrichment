@@ -15,7 +15,7 @@ campusRouter.get("/", (req,res,next) =>{
 })
 // - a campus by id
 campusRouter.get("/:id", (req, res, next) => {
-    Campus.findById(req.params.id)
+    Campus.findById(req.params.id, {include: [{all: true}]})
         .then(campus => res.status(200).json(campus))
         .catch(next)
 })

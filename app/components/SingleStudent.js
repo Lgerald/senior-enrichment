@@ -6,27 +6,26 @@ import { Link, withRouter } from 'react-router-dom'
 
 
 export const SingleStudent = (props) => {
-    console.log(props)
+
     const { students, campus } = props
     const routeId = Number(props.match.params.studentId)
 
-    const filteredStudent = students.filter(s => s.id === routeId)
+    const filteredStudent = students.find(s => s.id === routeId)
+
  
 
     return (
     <div>
-        { filteredStudent.map(student => {
-            return (
-                <div className="StudentProfile" key={student.id}>
-                <h1>name: {student.name}</h1>
-                <h2>campus: {(campus.filter(camp => camp.id === student.campusId)).map(campus => campus.name)} </h2>
-                </div>
-
-
-                    ) 
-                
-                })
+        {
+            filteredStudent &&
+            <div className="studentProfile" key={filteredStudent.id}>
+                <h1>{filteredStudent.name}</h1>
+                <h3>email: {filteredStudent.email}</h3>
+                <h4>gpa: {filteredStudent.gpa}</h4>
+                <Link to={`/campus/${filteredStudent.campusId}`}>{filteredStudent.campus.name}</Link>
+            </div>
         }
+
     </div>
     )
 }

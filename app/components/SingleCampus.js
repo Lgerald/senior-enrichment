@@ -5,13 +5,26 @@ import { connect } from 'react-redux'
 export const SingleCampus = (props) => {
     const { campus, students } = props
     const routeId = Number(props.match.params.campusId)
-    const filteredCampus = campus.filter(c => c.id === routeId)
-
-
-
+    const filteredCampus = campus.find(c => c.id === routeId)
+    const filteredStudents = students.filter(s => s.campusId === routeId)
+    console.log("filtered campus", filteredCampus)
     return (
         <div>
-            {filteredCampus.map(campus => <h1 key={campus.id}>{campus.name}</h1>)}
+            {
+            filteredCampus && 
+            <div className="campusProfile" key={filteredCampus.id}>
+                <h1>{filteredCampus.name} Campus</h1>
+                <img src={filteredCampus.imageUrl}/>
+                <p>{filteredCampus.description}</p>
+                <h3>{filteredCampus.name} Campus Students:</h3>
+                <ul>
+                    {
+                    filteredStudents &&
+                    filteredStudents.map(student => <li key={student.id}>{student.name}</li>)
+                    }
+                </ul>
+            </div>
+            }
         </div>
     )
 

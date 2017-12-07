@@ -10,7 +10,7 @@ const Campus = db.define("campuses", {
     },
     imageUrl: {
         type: Sequelize.STRING,
-        defaultValue: "http://2.bp.blogspot.com/-lQTq790Uxo0/UF9wJG432uI/AAAAAAAAAis/OFLh71VPtKc/s1600/vlcsnap-2012-09-23-21h23m00s35.png"
+        defaultValue: "https://vignette.wikia.nocookie.net/nekoatsume/images/d/df/Classic_Style.png/revision/latest?cb=20151107131336"
     },
     description: {
         type: Sequelize.TEXT
