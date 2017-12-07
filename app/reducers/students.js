@@ -28,7 +28,7 @@ export function fetchStudents() {
 
 export function postStudent(student, history){
     return function thunk(dispatch) {
-        axios.post('/api/student', student)
+        return axios.post('/api/student', student)
         .then(res => res.data)
         .then(newStudent => {
             const action = getStudent(newStudent)

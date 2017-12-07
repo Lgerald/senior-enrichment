@@ -26,7 +26,11 @@ in another then:
 // POST
 // - new student //ask about find or create***
 studentsRouter.post("/", (req,res,next) =>{
-    Students.create(req.body)
+    Students.create({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email
+    })
     .then(newStudent => res.status(201).json(newStudent))
     .catch(next)
 })
