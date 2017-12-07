@@ -24,6 +24,7 @@ export function fetchCampuses() {
             const action = getCampuses(campuses)
             dispatch(action)
         })
+        .catch(console.error)
     }
 }
 
@@ -36,6 +37,7 @@ export function postCampus(campus, history) {
             dispatch(action)
             history.push(`${newCampus.id}`)
         })
+        .catch(console.error)
     }
 }
 

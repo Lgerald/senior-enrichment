@@ -22,6 +22,7 @@ export function fetchStudents() {
             const action = getStudents(students)
             dispatch(action)
         })
+        .catch(console.error)
     }
 }
 
@@ -34,6 +35,7 @@ export function postStudent(student, history){
             dispatch(action)
             history.push(`${newStudent.id}`)
         }) 
+        .catch(console.error)
     }
 }
 
