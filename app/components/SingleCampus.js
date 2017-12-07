@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import store, { getCampus, getStudents } from '../store'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import EditCampus from './EditCampus'
 
 export const SingleCampus = (props) => {
     const { campus, students } = props
@@ -25,6 +26,7 @@ export const SingleCampus = (props) => {
                 </ul>
             </div>
             }
+            <EditCampus />
         </div>
     )
 

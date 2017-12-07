@@ -14,8 +14,8 @@ campusRouter.get("/", (req,res,next) =>{
     .catch(next)
 })
 // - a campus by id
-campusRouter.get("/:id", (req, res, next) => {
-    Campus.findById(req.params.id, {include: [{all: true}]})
+campusRouter.get("/:campusId", (req, res, next) => {
+    Campus.findById(req.params.campusId, {include: [{all: true}]})
         .then(campus => res.status(200).json(campus))
         .catch(next)
 })
@@ -31,17 +31,17 @@ campusRouter.post("/", (req,res,next) => {
 
 // PUT
 // - updated campus info for one campus
-campusRouter.put("/:id", (req,res,next) => {
-    Campus.update(req.body, {where: {id: req.params.id}, returning: true})
+campusRouter.put("/:campusId", (req,res,next) => {
+    Campus.update(req.body, {where: {id: req.params.campusId}, returning: true})
     .then(([numrows, [updatedCampus]]) => res.status(200).json(updatedCampus))
     .catch(next)
 })
 
 // DELETE
 // - a campus
-campusRouter.delete("/:id", (req,res,next) => {
-    Campus.destroy({where: {id: req.params.id}, returning: true})
-    .then((numrows, destroyedCampus) => res.json(`You just deleted campus ${req.params.id}`))
+campusRouter.delete("/:campusId", (req,res,next) => {
+    Campus.destroy({where: {id: req.params.campusId}, returning: true})
+    .then((numrows, destroyedCampus) => res.json(`You just deleted campus ${req.params.campusId}`))
     .catch(next)
 })
 

@@ -14,8 +14,8 @@ studentsRouter.get("/", (req,res,next) => {
     .catch(next);
 })
 // - a student by id
-studentsRouter.get("/:id", (req, res ,next) => {
-    Students.findById(req.params.id, {include: [{all:true}]})
+studentsRouter.get("/:studentId", (req, res ,next) => {
+    Students.findById(req.params.studentId, {include: [{all:true}]})
     .then(student => res.status(200).json(student))
     .catch(next)
 })
@@ -36,17 +36,17 @@ studentsRouter.post("/", (req,res,next) =>{
 })
 // PUT
 // - updated student info for one student
-studentsRouter.put("/:id", (req,res,next) => {
-    Students.update(req.body, {where: {id: req.params.id}, returning: true})
+studentsRouter.put("/:studentId", (req,res,next) => {
+    Students.update(req.body, {where: {id: req.params.studentId}, returning: true})
     .then(([numrows, [updatedStudent]]) => res.status(200).json(updatedStudent))
     .catch(next)
 })
 
 // DELETE
 // - a student
-studentsRouter.delete("/:id", (req,res,next) => {
-    Students.destroy({where: {id: req.params.id}, returning: true})
-    .then((numrows, destroyedStudent) => res.json(`you just deleted student ${req.params.id}`))
+studentsRouter.delete("/:studentId", (req,res,next) => {
+    Students.destroy({where: {id: req.params.studentId}, returning: true})
+    .then((numrows, destroyedStudent) => res.json(`you just deleted student ${req.params.studentId}`))
     .catch(next)
 })//to show whats been destoryed, you can refer to whatever on req.body
 

@@ -39,7 +39,7 @@ export const NewStudentEntry = (props) => {
                 />
             </div>
             <div className="form-group">
-                <button type="submit" className="btn btn-default">Join!</button>
+                <button type="submit" className="btn btn-default">Join Our Kitten Cohort!</button>
             </div>
         </form>
     </div>
