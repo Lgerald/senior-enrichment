@@ -4,7 +4,7 @@ const NEW_STUDENT = "NEW_STUDENT"
 
 export function newStudent(student) {
     const action = { type: NEW_STUDENT, student }
-    return action;
+    return action
 }
 
 function newStudentReducer(state = "", action) {

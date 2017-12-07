@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import store, { newStudent, postStudent }from '../store'
+import store, { newStudent, postStudent } from '../store'
 
-export function NewStudentEntry (props) {
+export const NewStudentEntry = (props) => {
     const { newStudent, handleFirstNameChange, handleLastNameChange, handleEmailChange, handleSubmit } = props
 
     return (
     <div>
-        <h3>Wanna quit life and become a cat? Join Kitten-Academy today!</h3>
+        <h4>Wanna quit life and become a cat? Join Kitten-Academy today!</h4>
         <h6>*spaces are limited</h6>
         <form onSubmit={handleSubmit}>
             <div className="form-group">

@@ -4,6 +4,7 @@ export const NEW_CAMPUS = "NEW_CAMPUS"
 
 export function newCampus(campus) {
     const action = { type: NEW_CAMPUS, campus }
+    return action
 }
 
 
