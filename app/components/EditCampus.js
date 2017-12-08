@@ -37,6 +37,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
     return {
         handleSubmit: (e) => {
+            e.preventDefault()
             const name = e.target.campusName.value || ownProps.campus.name
             const description = e.target.description.value || ownProps.campus.description
             const action = editCampusRequest(ownProps.campus.id, {name, description}, ownProps.history)

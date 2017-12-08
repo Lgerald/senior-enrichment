@@ -16,7 +16,7 @@ export function getStudents(students) {
 
 export function fetchStudents() {
     return function thunk(dispatch) {
-        return axios.get('/api/student')
+        return axios.get('/api/students')
         .then(res => res.data)
         .then(students => {
             const action = getStudents(students)
@@ -28,12 +28,12 @@ export function fetchStudents() {
 
 export function postStudent(student, history){
     return function thunk(dispatch) {
-        return axios.post('/api/student', student)
+        return axios.post('/api/students', student)
         .then(res => res.data)
         .then(newStudent => {
             const action = getStudent(newStudent)
             dispatch(action)
-            history.push(`/student/${newStudent.id}`)
+            history.push(`/students/${newStudent.id}`)
     
         }) 
         .catch(console.error)

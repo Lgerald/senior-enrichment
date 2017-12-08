@@ -35,7 +35,6 @@ export default class root extends Component {
                 <Route path="/campus/:campusId" component={SingleCampus} />
                 <Route exact path="/students" component={AllStudents} />
                 <Route path="/students/:studentId" component={SingleStudent} />
-                {/*<Redirect to="/" component={home}/>*/}
               </switch>
         </div>
       </Router>

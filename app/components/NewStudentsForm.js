@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import store, { newStudent, postStudent } from '../store'
+import store, { newStudent, postStudent, getCampuses } from '../store'
 
 export const NewStudentEntry = (props) => {
-    const { newStudent, handleFirstNameChange, handleLastNameChange, handleEmailChange, handleSubmit } = props
+    const { newStudent, handleFirstNameChange, handleLastNameChange, handleEmailChange, handleSubmit, handlegpaChange, campus } = props
+    console.log("campus", campus)
 
     return (
     <div>
@@ -37,10 +38,20 @@ export const NewStudentEntry = (props) => {
                     value={newStudent}
                     onChange={handleEmailChange}
                 />
+                <label htmlFor="gpa" className="col-sm-2 control-label">GPA:</label>
+                <input
+                    className="form-control"
+                    name="gpa"
+                    placeholder="gpa goes here"
+                    value={newStudent}
+                    onChange={handlegpaChange}
+                /> 
             </div>
-            <div className="form-group">
-                <button type="submit" className="btn btn-default">Join Our Kitten Cohort!</button>
-            </div>
+
+
+
+                <button type="submit" className="btn btn-primary">Join Our Kitten Cohort!</button>
+
         </form>
     </div>
     )
@@ -49,7 +60,8 @@ export const NewStudentEntry = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        newStudent: state.newStudent
+        newStudent: state.newStudent,
+        campus: state.campus
     }
 
 }
@@ -68,9 +80,13 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             e.preventDefault()
             dispatch(newStudent(e.target.email))
         },
+        handlegpaChange: (e) => {
+            e.preventDefault()
+            dispatch(newStudent(e.gpa.email))
+        },
 
         handleSubmit: (e) => {
-
+            e.preventDefault()
             const firstName = e.target.firstName.value
             const lastName = e.target.lastName.value
             const email = e.target.email.value

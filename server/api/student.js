@@ -29,7 +29,9 @@ studentsRouter.post("/", (req,res,next) =>{
     Students.create({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        email: req.body.email
+        email: req.body.email,
+        gpa: req.body.gpa,
+        campusId: req.body.campusId || (Math.random()*7) 
     })
     .then(newStudent => res.status(201).json(newStudent))
     .catch(next)

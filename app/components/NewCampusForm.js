@@ -29,7 +29,7 @@ export const NewCampusEntry = (props) => {
                     />
                 </div>
                 <div className="form-group">
-                    <button type="submit" className="btn btn-default">Start Your Own Kitten-Campus!</button>
+                    <button type="submit" className="btn btn-primary">Start Your Own Kitten-Campus!</button>
                 </div>
             </form>
         </div>
@@ -56,7 +56,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             dispatch(newCampus(e.target.description))
         },
         handleSubmit: (e) => {
-
+            e.preventDefault()
             const name = e.target.campusName.value
             const description = e.target.description.value
             dispatch(postCampus({name, description}), ownProps.history)

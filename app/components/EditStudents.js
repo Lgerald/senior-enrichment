@@ -32,11 +32,6 @@ export const studentEdit = (props) => {
                         className="form-control"
                         name="gpa"
                     />
-                    <label htmlFor="campusId" className="col-sm-2 control-label">Campus:</label>
-                    <input
-                        className="form-control"
-                        name="campusId"
-                    />
                 </div>
                 <div className="form-group">
                     <button type="submit" className="btn btn-primary">submit</button>
@@ -56,6 +51,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         handleSubmit: (e) => {
+            e.preventDefault()
             const firstName = e.target.firstName.value || ownProps.student.firstName
             const lastName = e.target.lastName.value || ownProps.student.lastName
             const email = e.target.email.value || ownProps.student.email

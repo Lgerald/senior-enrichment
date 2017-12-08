@@ -24,7 +24,6 @@ db.sync({force: true})
         { firstName: "Snowball", lastName: "the White", email: "snowball@gmail.com", gpa: 0.1, campusId: 6 },
         { firstName: "Smokey", lastName: "Da Bear", email: "forestfirestopper@gmail.com", gpa: 2.5, campusId: 7 },
         { firstName: "Spots", lastName: "N' dots", email: "spotty@gmail.com", gpa: 1.5, campusId: 1 },
-        { firstName: "Spots", lastName: "N' dots", email: "spotty@gmail.com", gpa: 1.5, campusId:2 },
         { firstName: "Shadow", lastName: "Mcknight", email: "blackcatsrule@gmail.com", gpa: 3.0, campusId:3 },
         { firstName: "Xerxes", lastName: "XI", email: "kingofthecats@gmail.com", gpa: 4.0, campusId:4 },
         { firstName: "bob", lastName: "the cat", email: "bob@gmail.com", gpa: 0.9, campusId:5 },

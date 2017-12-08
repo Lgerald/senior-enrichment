@@ -11,7 +11,7 @@ export function editStudent(student) {
 
 export function editStudentRequest(studentId, student) {
     return function thunk(dispatch) {
-        axios.put(`/api/student/${studentId}`, student)
+        axios.put(`/api/students/${studentId}`, student)
         .then(res => res.data)
         .then(editedStudent => {
             const action = editStudent(editedStudent)
