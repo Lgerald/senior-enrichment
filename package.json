@@ -2,7 +2,7 @@
   "name": "kitten-academy",
   "version": "0.0.1",
   "description": "A review time project",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "start:dev": "webpack -w & nodemon main",
     "start": "node main"

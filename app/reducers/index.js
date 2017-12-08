@@ -4,11 +4,13 @@ import campus from './campus'
 import students from './students'
 import newStudent from './newStudent'
 import newCampus from './newCampus'
+import editCampus from './editCampus'
+import editStudent from './editStudents'
 
 const initialState = {}
 
 const rootReducer = combineReducers({
-  campus, students, newStudent, newCampus
+  campus, students, newStudent, newCampus, editCampus, editStudent
 })
 
 

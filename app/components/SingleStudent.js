@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import store, { getStudent } from '../store'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
+import EditStudents from './EditStudents'
 
 
 
@@ -25,7 +26,8 @@ export const SingleStudent = (props) => {
                 <Link to={`/campus/${filteredStudent.campusId}`}>{filteredStudent.campus.name}</Link>
             </div>
         }
-
+        
+        <EditStudents student={filteredStudent && filteredStudent}/>
     </div>
     )
 }

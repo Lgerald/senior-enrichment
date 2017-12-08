@@ -4,11 +4,10 @@ import store ,{ editCampus, editCampusRequest} from '../store'
 
 
 export const campusEdit = (props) => {
-    const { campus, handleSubmit } = props
-    console.log("props? ", props)
+    const { handleSubmit } = props
     return (
         <div>
-            <h3>Edit Campus {campus.name}:</h3>
+            <h3>Edit this Campus:</h3>
             <form onSubmit={handleSubmit}>
             <div className="form-group">
                 <label htmlFor="campusName" className="col-sm-2 control-label">Name:</label>
@@ -33,13 +32,6 @@ export const campusEdit = (props) => {
 }
 
 
-const mapStateToProps = (state) => {
-    return {
-        campus: state.campus
-    }
-
-}
-
 const mapDispatchToProps = (dispatch, ownProps) => {
 
     return {
@@ -54,6 +46,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 }
 
-const EditCampusContainer = connect(mapStateToProps, mapDispatchToProps)(campusEdit)
+const EditCampusContainer = connect(null, mapDispatchToProps)(campusEdit)
 
 export default EditCampusContainer
