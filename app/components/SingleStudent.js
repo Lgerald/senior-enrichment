@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import store, { getStudent } from '../store'
 import { connect } from 'react-redux'
-import { Link, withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import EditStudents from './EditStudents'
 
 
@@ -50,7 +50,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-const singleStudentContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(SingleStudent))
+const singleStudentContainer = (connect(mapStateToProps, mapDispatchToProps)(SingleStudent))
 
 export default singleStudentContainer
 

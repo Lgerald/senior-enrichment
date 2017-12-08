@@ -10,7 +10,7 @@ export function editCampus(campus) {
 }
 
 
-export function editCampusRequest(campusId, campus) {
+export function editCampusRequest(campusId, campus, history) {
     return function thunk(dispatch) {
         axios.put(`/api/campus/${campusId}`, campus)
             .then(res => res.data)

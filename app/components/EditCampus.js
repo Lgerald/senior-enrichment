@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import store ,{ editCampus, editCampusRequest} from '../store'
+import { withRouter } from 'react-router-dom'
 
 
 export const campusEdit = (props) => {
@@ -39,13 +40,13 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             e.preventDefault()
             const name = e.target.campusName.value || ownProps.campus.name
             const description = e.target.description.value || ownProps.campus.description
-            const action = editCampusRequest(ownProps.campus.id, {name, description})
+            const action = editCampusRequest(ownProps.campus.id, {name, description}, ownProps.history)
             dispatch(action)
         }
     }
 
 }
 
-const EditCampusContainer = connect(null, mapDispatchToProps)(campusEdit)
+const EditCampusContainer = withRouter(connect(null, mapDispatchToProps)(campusEdit))
 
 export default EditCampusContainer
