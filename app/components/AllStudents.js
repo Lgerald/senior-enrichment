@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import store, { getStudents, deleteStudentRequest } from '../store'
+import store, { getStudents, deleteStudentRequest, getStudent } from '../store'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 
@@ -36,10 +36,11 @@ const mapDispatchToProps = (dispatch) => {
             const action = getStudents()
             dispatch(action)
         },
-        deleteStudent () {
+        deleteStudent (e) {
             e.preventDefault()
             const action = deleteStudentRequest(e.target.name)
             dispatch(action)
+
         }
     }
 }

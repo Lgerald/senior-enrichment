@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import store, { editStudent, editStudentRequest } from '../store'
+import store, { editStudent, editStudentRequest, newStudent } from '../store'
 import { withRouter } from 'react-router-dom'
 
 export const studentEdit = (props) => {
-    const { campus, handleSubmit } = props
+    const { campus, handleSubmit, newStudent, handleChange } = props
     console.log("props?>", props)
     return (
         <div>
@@ -15,22 +15,26 @@ export const studentEdit = (props) => {
                     <input
                         className="form-control"
                         name="firstName"
+                        onChange={handleChange}
                     />
 
                     <label htmlFor="lastName" className="col-sm-2 control-label">last name:</label>
                     <input
                         className="form-control"
                         name="lastName"
+                        onChange={handleChange}
                     />
                     <label htmlFor="email" className="col-sm-2 control-label">email address:</label>
                     <input
                         className="form-control"
                         name="email"
+                        onChange={handleChange}
                     />
                     <label htmlFor="gpa" className="col-sm-2 control-label">gpa:</label>
                     <input
                         className="form-control"
                         name="gpa"
+                        onChange={handleChange}
                     />
                 </div>
                 <div className="form-group">
@@ -50,6 +54,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
+        handleChange: (e) => {
+            e.preventDefault()
+            let name = [e.target.name]
+            name = e.target.value
+            dispatch(newStudent(name))
+        },
         handleSubmit: (e) => {
             e.preventDefault()
             const firstName = e.target.firstName.value || ownProps.student.firstName
