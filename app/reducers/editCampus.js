@@ -19,7 +19,7 @@ export function editCampusRequest(campusId, campus, history) {
                 // could use own props to get id match,.params.id instead
 
                 dispatch(action)
-                history.push(`${editedCampus.id}`)
+                history.push(`/campus/${editedCampus.id}`)
             })
             .catch(console.error)
     }

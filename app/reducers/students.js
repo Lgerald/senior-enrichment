@@ -33,7 +33,8 @@ export function postStudent(student, history){
         .then(newStudent => {
             const action = getStudent(newStudent)
             dispatch(action)
-            history.push(`${newStudent.id}`)
+            history.push(`/student/${newStudent.id}`)
+    
         }) 
         .catch(console.error)
     }

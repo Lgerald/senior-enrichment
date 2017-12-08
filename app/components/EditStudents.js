@@ -39,7 +39,7 @@ export const studentEdit = (props) => {
                     />
                 </div>
                 <div className="form-group">
-                    <button type="submit" className="btn btn-default">submit</button>
+                    <button type="submit" className="btn btn-primary">submit</button>
                 </div>
             </form>
 
@@ -56,13 +56,11 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         handleSubmit: (e) => {
-            e.preventDefault()
             const firstName = e.target.firstName.value || ownProps.student.firstName
             const lastName = e.target.lastName.value || ownProps.student.lastName
             const email = e.target.email.value || ownProps.student.email
             const gpa = e.target.gpa.value || ownProps.student.gpa
             //const campusId = e.target.campusId.value || ownProps.student.campus.name
-            console.log(ownProps)
 
             const action = editStudentRequest(ownProps.student.id, {firstName, lastName, email, gpa})
             dispatch(action)

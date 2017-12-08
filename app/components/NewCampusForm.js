@@ -56,11 +56,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             dispatch(newCampus(e.target.description))
         },
         handleSubmit: (e) => {
-            e.preventDefault()
+
             const name = e.target.campusName.value
             const description = e.target.description.value
             dispatch(postCampus({name, description}), ownProps.history)
             dispatch(newCampus(""))
+            ownProps.history.push(`campus/${ownProps.id}`)
 
         }
     }

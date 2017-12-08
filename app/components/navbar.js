@@ -6,9 +6,9 @@ export default function NavBar (props) {
         <div>
             <Link to="/">Kitten Academy</Link>
             <br />
-            <Link className="btn btn-primary btn-block" to="/campus">Our Campuses</Link>
+            <Link className="btn btn-primary" to="/campus">Our Campuses</Link>
             <br />
-            <Link className="btn btn-primary btn-block" to="/students">Our Students</Link>
+            <Link className="btn btn-primary" to="/students">Our Students</Link>
         </div>
     )
 }

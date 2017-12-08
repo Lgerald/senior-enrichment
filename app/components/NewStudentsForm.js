@@ -70,12 +70,13 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         },
 
         handleSubmit: (e) => {
-            e.preventDefault()
+
             const firstName = e.target.firstName.value
             const lastName = e.target.lastName.value
             const email = e.target.email.value
             dispatch(postStudent({firstName, lastName, email}), ownProps.history)
             dispatch(newStudent(""))
+            ownProps.history.push(`students/${ownProps.id}`)
 
         }
     }
