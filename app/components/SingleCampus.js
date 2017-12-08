@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import store, { getCampus, getStudents } from '../store'
+import store, { getCampus, getStudents, deleteStudentRequest } from '../store'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import EditCampus from './EditCampus'
 
 export const SingleCampus = (props) => {
-    const { campus, students } = props
+    const { campus, students, deleteStudent } = props
     const routeId = Number(props.match.params.campusId)
     const filteredCampus = campus.find(c => c.id === routeId)
     const filteredStudents = students.filter(s => s.campusId === routeId)
@@ -21,7 +21,10 @@ export const SingleCampus = (props) => {
                 <ul>
                     {
                     filteredStudents &&
-                    filteredStudents.map(student => <li key={student.id}><Link to={`/students/${student.id}`}>{student.name}</Link></li>)
+                    filteredStudents.map(student => <li key={student.id}>
+                        <Link to={`/students/${student.id}`}>{student.name}</Link>
+                        <button name={student.id} onClick={deleteStudent}>X</button>
+                        </li>)
                     }
                 </ul>
             </div>
@@ -47,6 +50,11 @@ const mapDispatchToProps = (dispatch) => {
         },
         getStudents () {
             const action = getStudents()
+            dispatch(action)
+        },
+        deleteStudent (e) {
+            e.preventDefault()
+            const action = deleteStudentRequest(e.target.name)
             dispatch(action)
         }
         
