@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import store, { getCampuses, deleteCampusRequest } from '../store'
+import store, { getCampuses, deleteCampusRequest, getCampus } from '../store'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 
@@ -23,8 +23,6 @@ export const AllCampuses = (props) => {
                 </ul>
             </div>
         )
-
-
 }
 
 

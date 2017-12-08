@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import store, { newStudent, postStudent, getCampuses } from '../store'
 
 export const NewStudentEntry = (props) => {
-    const { newStudent, handleFirstNameChange, handleLastNameChange, handleEmailChange, handleSubmit, handlegpaChange, campus } = props
+    const { newStudent, handleSubmit, handleChange, campus } = props
     console.log("campus", campus)
 
     return (
@@ -17,8 +17,8 @@ export const NewStudentEntry = (props) => {
                     className="form-control"
                     name="firstName"
                     placeholder="first name goes here" 
-                    value={newStudent}
-                    onChange={handleFirstNameChange}
+                    //value={newStudent}
+                    onChange={handleChange}
                 />
             
                 <label htmlFor="lastName" className="col-sm-2 control-label">Last Name:</label>
@@ -26,8 +26,8 @@ export const NewStudentEntry = (props) => {
                     className="form-control"
                     name="lastName"
                     placeholder="last name goes here"
-                    value={newStudent}
-                    onChange={handleLastNameChange}
+                    //value={newStudent}
+                    onChange={handleChange}
                 />
 
                 <label htmlFor="email" className="col-sm-2 control-label">Email Address:</label>
@@ -35,16 +35,16 @@ export const NewStudentEntry = (props) => {
                     className="form-control"
                     name="email"
                     placeholder="email goes here"
-                    value={newStudent}
-                    onChange={handleEmailChange}
+                    //value={newStudent}
+                    onChange={handleChange}
                 />
                 <label htmlFor="gpa" className="col-sm-2 control-label">GPA:</label>
                 <input
                     className="form-control"
                     name="gpa"
                     placeholder="gpa goes here"
-                    value={newStudent}
-                    onChange={handlegpaChange}
+                    //value={newStudent}
+                    onChange={handleChange}
                 /> 
             </div>
 
@@ -68,22 +68,13 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        handleFirstNameChange: (e) => {
+        handleChange: (e) => {
             e.preventDefault()
-            dispatch(newStudent(e.target.firstName))
+            let name = [e.target.name]
+            name = e.target.value
+            dispatch(newStudent(name))
         },
-        handleLastNameChange: (e) => {
-            e.preventDefault()
-            dispatch(newStudent(e.target.lastName))
-        },
-        handleEmailChange: (e) => {
-            e.preventDefault()
-            dispatch(newStudent(e.target.email))
-        },
-        handlegpaChange: (e) => {
-            e.preventDefault()
-            dispatch(newStudent(e.gpa.email))
-        },
+
 
         handleSubmit: (e) => {
             e.preventDefault()

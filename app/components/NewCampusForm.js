@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import store, { newCampus, postCampus, newStudent } from '../store'
 
 export const NewCampusEntry = (props) => {
-    const { newCampus, handleNameChange, handleDescriptionChange, handleSubmit } = props
+    const { newCampus, handleSubmit, handleChange } = props
 
     return (
         <div>
@@ -15,8 +15,8 @@ export const NewCampusEntry = (props) => {
                         className="form-control"
                         name="campusName"
                         placeholder="What should we call me?"
-                        value={newCampus}
-                        onChange={handleNameChange}
+                        //value={newCampus}
+                        onChange={handleChange}
                     />
 
                     <label htmlFor="description" className="col-sm-2 control-label">Campus Description:</label>
@@ -24,8 +24,8 @@ export const NewCampusEntry = (props) => {
                         className="form-control"
                         name="description"
                         placeholder="tell me about this campus!"
-                        value={newCampus}
-                        onChange={handleDescriptionChange}
+                        //value={newCampus}
+                        onChange={handleChange}
                     />
                 </div>
                 <div className="form-group">
@@ -45,16 +45,14 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        handleNameChange: (e) => {
-            e.preventDefault()
-            console.dir("!!", e.target)
-            dispatch(newCampus(e.target.campusName))
 
-        },
-        handleDescriptionChange: (e) => {
+        handleChange: (e) => {
             e.preventDefault()
-            dispatch(newCampus(e.target.description))
+            let name = [e.target.name]
+            name = e.target.value
+            dispatch(newCampus(name))
         },
+
         handleSubmit: (e) => {
             e.preventDefault()
             const name = e.target.campusName.value
