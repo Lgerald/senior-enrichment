@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import store ,{ editCampus, editCampusRequest} from '../store'
+import store ,{ editCampusRequest } from '../store'
 import { withRouter } from 'react-router-dom'
 
 

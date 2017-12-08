@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import store, { getStudents } from '../store'
+import store, { getStudents, deleteStudentRequest } from '../store'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 
 
 export const AllStudents = (props) => {
-    const { students } = props
+    const { students, deleteStudent } = props
     return (
         <div>
             <ul>
@@ -13,7 +13,7 @@ export const AllStudents = (props) => {
                 students.map(student => {
                     return (
                         <li key={student.id}>
-                        <Link to={`/students/${student.id}`}>{student.name}</Link>
+                        <Link to={`/students/${student.id}`}>{student.name}</Link><button name={student.id} onClick={deleteStudent}>X</button>
                         </li>
                     )
                 })
@@ -34,6 +34,11 @@ const mapDispatchToProps = (dispatch) => {
     return {
         getStudents () {
             const action = getStudents()
+            dispatch(action)
+        },
+        deleteStudent () {
+            e.preventDefault()
+            const action = deleteStudentRequest(e.target.name)
             dispatch(action)
         }
     }

@@ -31,9 +31,9 @@ export function editCampusRequest(campusId, campus, history) {
     }
 }
 
-export function deleteCampusRequest(campusId, campus) {
+export function deleteCampusRequest(campusId) {
     return function thunk(dispatch) {
-        axios.delete(`/api/campus/${campusId}`, campus)
+        axios.delete(`/api/campus/${campusId}`)
         .then(res => res.data)
         .then(deletedCampus => {
             const action = deleteCampus(deletedCampus)
