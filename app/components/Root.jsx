@@ -4,14 +4,13 @@ import AllCampuses from './AllCampuses'
 import AllStudents from './AllStudents'
 import SingleCampus from './SingleCampus'
 import SingleStudent from './SingleStudent'
+//import EditCampus from './EditCampus'
+//import EditStudents from './EditStudents'
 import home from './home'
 import Navbar from './navbar'
 import store, { fetchStudents, fetchCampuses } from '../store';
 
-/* The code below does NOT relate to your project.
-   This code is just a nice BIG example of how you can make a component.
-   Also it is HILARIOUS :D Have fun!
- */
+
  
 export default class root extends Component {
   componentDidMount () {
@@ -33,8 +32,10 @@ export default class root extends Component {
                 <Route exact path="/" component={home} />
                 <Route exact path="/campus" component={AllCampuses}/>
                 <Route path="/campus/:campusId" component={SingleCampus} />
+
                 <Route exact path="/students" component={AllStudents} />
                 <Route path="/students/:studentId" component={SingleStudent} />
+
               </switch>
         </div>
       </Router>

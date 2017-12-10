@@ -4,6 +4,7 @@ const db = require('../db')
 const { Campus, Students } = require("../db/models")
 
 
+
 // GET
 // - all students
 studentsRouter.get("/", (req,res,next) => {
@@ -31,7 +32,7 @@ studentsRouter.post("/", (req,res,next) =>{
         lastName: req.body.lastName,
         email: req.body.email,
         gpa: req.body.gpa,
-        campusId: req.body.campusId || (Math.random()*7) 
+        campusId: req.body.campusId || (Math.random()*7)
     })
     .then(newStudent => res.status(201).json(newStudent))
     .catch(next)

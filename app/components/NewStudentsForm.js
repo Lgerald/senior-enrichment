@@ -18,7 +18,7 @@ export const NewStudentEntry = (props) => {
                     name="firstName"
                     placeholder="first name goes here" 
                     //value={newStudent}
-                    onChange={handleChange}
+                
                 />
             
                 <label htmlFor="lastName" className="col-sm-2 control-label">Last Name:</label>
@@ -27,7 +27,7 @@ export const NewStudentEntry = (props) => {
                     name="lastName"
                     placeholder="last name goes here"
                     //value={newStudent}
-                    onChange={handleChange}
+                   
                 />
 
                 <label htmlFor="email" className="col-sm-2 control-label">Email Address:</label>
@@ -36,7 +36,7 @@ export const NewStudentEntry = (props) => {
                     name="email"
                     placeholder="email goes here"
                     //value={newStudent}
-                    onChange={handleChange}
+           
                 />
                 <label htmlFor="gpa" className="col-sm-2 control-label">GPA:</label>
                 <input
@@ -44,14 +44,14 @@ export const NewStudentEntry = (props) => {
                     name="gpa"
                     placeholder="gpa goes here"
                     //value={newStudent}
-                    onChange={handleChange}
+            
                 />
                 <label htmlFor="campus" >Campus:</label>
-                <select>
+                <select className="form-control" onChange={handleChange} >
                     {campus.map(c => (<option key={c.id} name="campus" value={c.id}>{c.name}</option>))}
                 </select> 
-            </div>
                 <button type="submit" className="btn btn-primary">Join Our Kitten Cohort!</button>
+                </div>
 
         </form>
     </div>
@@ -62,7 +62,8 @@ export const NewStudentEntry = (props) => {
 const mapStateToProps = (state) => {
     return {
         newStudent: state.newStudent,
-        campus: state.campus
+        campus: state.campus,
+        students: state.students
     }
 
 }
@@ -76,6 +77,13 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             dispatch(newStudent(name))
         },
 
+        handleSelect: () => {
+            e.preventDefault()
+            let name = [e.target.name]
+            name = e.target.value
+            return name;
+        },
+
 
         handleSubmit: (e) => {
             e.preventDefault()
@@ -83,11 +91,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             const lastName = e.target.lastName.value
             const email = e.target.email.value
             const gpa = e.target.gpa.value
-            const campusId = e.target.campus.value
+            const campusId = Number(newStudent)
+            dispatch(postStudent({firstName, lastName, email, gpa, campusId}))
 
-            dispatch(postStudent({firstName, lastName, email, gpa, campusId}), ownProps.history)
-            dispatch(newStudent(""))
-            ownProps.history.push(`students/${ownProps.id}`)
 
         }
     }

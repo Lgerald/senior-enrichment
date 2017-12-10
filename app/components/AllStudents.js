@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import store, { getStudents, deleteStudentRequest, getStudent } from '../store'
+import store, { deleteStudentRequest } from '../store'
 import { connect } from 'react-redux'
-import { Link, withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 export const AllStudents = (props) => {
@@ -26,16 +26,13 @@ export const AllStudents = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        students: state.students
+        students: state.students,
+        campus: state.campus
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getStudents () {
-            const action = getStudents()
-            dispatch(action)
-        },
         deleteStudent (e) {
             e.preventDefault()
             const action = deleteStudentRequest(e.target.name)

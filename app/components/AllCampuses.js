@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
-import store, { getCampuses, deleteCampusRequest, getCampus } from '../store'
+import store, { deleteCampusRequest } from '../store'
 import { connect } from 'react-redux'
-import { Link, withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 export const AllCampuses = (props) => {
 
-        const { campuses, deleteCampus } = props
+        const { campus, deleteCampus } = props
         return (
             <div>
                 <ul>
                 {
-                   campuses.map(campus => {
+                   campus.map(campus => {
                        return (
                             <li key={campus.id}>
                             <Link to={`/campus/${campus.id}`}>{campus.name}</Link>
@@ -28,16 +28,13 @@ export const AllCampuses = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        campuses: state.campus
+        campus: state.campus,
+        students: state.students
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getCampuses () {
-            const action = getCampuses()
-            dispatch(action)
-        },
         deleteCampus (e) {
             e.preventDefault()
             const action = deleteCampusRequest(e.target.name)

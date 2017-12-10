@@ -26,12 +26,18 @@ export const campusEdit = (props) => {
                 />
             </div>
             <div className="form-group">
-                <button type="submit" className="btn btn-default" >submit</button>
+                <button type="submit" className="btn btn-primary" >submit</button>
             </div>
         </form>
         </div>
     )
 
+}
+const mapStateToProps = (state) => {
+    return {
+        campus: state.campus,
+        students: state.students
+    }
 }
 
 
@@ -40,9 +46,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         handleChange: (e) => {
             e.preventDefault()
-            let name = [e.target.name]
-            name = e.target.value
-            dispatch(newCampus(name))
+            dispatch(newCampus([e.target.name]))
         },
         handleSubmit: (e) => {
             e.preventDefault()
@@ -55,6 +59,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 }
 
-const EditCampusContainer = withRouter(connect(null, mapDispatchToProps)(campusEdit))
+const EditCampusContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(campusEdit))
 
 export default EditCampusContainer

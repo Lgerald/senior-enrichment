@@ -2,8 +2,8 @@
 
 export const NEW_CAMPUS = "NEW_CAMPUS"
 
-export function newCampus(campus) {
-    const action = { type: NEW_CAMPUS, campus }
+export function newCampus(newCampus) {
+    const action = { type: NEW_CAMPUS, newCampus }
     return action
 }
 
@@ -11,7 +11,7 @@ export function newCampus(campus) {
 function newCampusReducer(state = "", action) {
     switch(action.type) {
         case NEW_CAMPUS:
-            return action.campus
+            return action.newCampus
         default:
             return state
     }

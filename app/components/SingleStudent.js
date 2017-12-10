@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import store, { getStudent } from '../store'
+import store from '../store'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import EditStudents from './EditStudents'
@@ -9,10 +9,7 @@ import EditStudents from './EditStudents'
 export const SingleStudent = (props) => {
 
     const { students, campus } = props
-    console.log("props", props)
-    const routeId = Number(props.match.params.studentId)
-    const filteredStudent = students.find(s => s.id === routeId)
-
+    const filteredStudent = students
 
     return (
     <div>
@@ -25,31 +22,35 @@ export const SingleStudent = (props) => {
                 <Link to={`/campus/${filteredStudent.campusId}`}>{filteredStudent.campus.name}</Link>
             </div>
         }
-        
         <EditStudents student={filteredStudent && filteredStudent}/>
     </div>
     )
 }
 
-const mapStateToProps = (state) => {
-
+const mapStateToProps = (state, ownProps) => {
+    const routeId = Number(ownProps.match.params.studentId)
     return {
-        students: state.students,
+        students: state.students.find(s => s.id === routeId),
         campus: state.campus
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getStudent() {
-            const action = getStudent()
-            dispatch(action)
-        }
-    }
-}
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         getStudents() {
+//             const action = getStudents()
+//             dispatch(action)
+//         },
+//         getCampuses() {
+//             const action = getCampuses()
+//             dispatch(action)
+//         }
+
+//     }
+// }
 
 
-const singleStudentContainer = (connect(mapStateToProps, mapDispatchToProps)(SingleStudent))
+const singleStudentContainer = (connect(mapStateToProps)(SingleStudent))
 
 export default singleStudentContainer
 

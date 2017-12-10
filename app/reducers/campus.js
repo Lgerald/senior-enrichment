@@ -3,6 +3,8 @@ import axios from "axios"
 
 const GET_CAMPUS = "GET_CAMPUS"
 const GET_CAMPUSES = "GET_CAMPUSES"
+const EDIT_CAMPUS = "EDIT_CAMPUS"
+const DELETE_CAMPUS = "DELETE_CAMPUS"
 
 
 
@@ -12,8 +14,18 @@ export function getCampus(campus) {
     return action
 }
 
-export function getCampuses(campuses) {
-    const action = {type: GET_CAMPUSES, campuses}
+export function getCampuses(campus) {
+    const action = {type: GET_CAMPUSES, campus}
+    return action
+}
+
+export function editCampus(campus) {
+    const action = { type: EDIT_CAMPUS, campus }
+    return action
+}
+
+export function deleteCampus(campus) {
+    const action = { type: DELETE_CAMPUS }
     return action
 }
 
@@ -31,30 +43,66 @@ export function fetchCampuses() {
     }
 }
 
-export function postCampus(campus, history) {
+export function postCampus(campus) {
     return function thunk (dispatch) {
-        axios.post('/api/campus', campus)
+        return axios.post('/api/campus', campus)
         .then(res => res.data)
         .then(newCampus => {
             const action = getCampus(newCampus)
             dispatch(action)
-            history.push(`${newCampus.id}`)
+  
         })
         .catch(console.error)
     }
 }
 
+export function editCampusRequest(campusId, campus, history) {
+    return function thunk(dispatch) {
+        axios.put(`/api/campus/${campusId}`, campus)
+            .then(res => res.data)
+            .then(editedCampus => {
+                const action = editCampus(editedCampus)//need a edit action jk cant just get it
+                // could use own props to get id match,.params.id instead
 
+                dispatch(action)
+                history.push(`/campus/${editedCampus.id}`)
+            })
+            .catch(console.error)
+    }
+}
+
+export function deleteCampusRequest(campusId) {
+    return function thunk(dispatch) {
+        axios.delete(`/api/campus/${campusId}`)
+            .then(res => res.data)
+            .then(deletedCampus => {
+                const action = deleteCampus(deletedCampus)
+                dispatch(action)
+            })
+            .catch(console.error)
+    }
+}
 
 
 
 function campusReducer(state = [], action) {
     switch(action.type) {
         case GET_CAMPUS:
-            return [...state.campuses, action.campus]
+            return [...state, action.campus]
         case GET_CAMPUSES:
-            return action.campuses
-
+            return action.campus
+        case EDIT_CAMPUS:
+            return [state.map(update => {
+                if (update.id === action.campus.id) {
+                    return action.campus
+                }
+            })]
+        case DELETE_CAMPUS:
+            return [state.filter(d => {
+                if (d.id !== action.campus.id) {
+                    return action.campus
+                }
+            })]  
         default:
             return state
     }

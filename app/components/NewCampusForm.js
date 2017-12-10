@@ -39,7 +39,9 @@ export const NewCampusEntry = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        newCampus: state.newCampus
+        newCampus: state.newCampus,
+        campus: state.campus,
+        students: state.students
     }
 }
 
@@ -48,18 +50,15 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
         handleChange: (e) => {
             e.preventDefault()
-            let name = [e.target.name]
-            name = e.target.value
-            dispatch(newCampus(name))
+            dispatch(newCampus([e.target.name]))
         },
 
         handleSubmit: (e) => {
             e.preventDefault()
             const name = e.target.campusName.value
             const description = e.target.description.value
-            dispatch(postCampus({name, description}), ownProps.history)
+            dispatch(postCampus({name, description}))
             dispatch(newCampus(""))
-            ownProps.history.push(`campus/${ownProps.id}`)
 
         }
     }
