@@ -12,14 +12,14 @@ export const SingleStudent = (props) => {
     const filteredStudent = students
 
     return (
-    <div>
+    <div className="singleStudent">
         {
             filteredStudent &&
             <div className="studentProfile" key={filteredStudent.id}>
-                <h1>{filteredStudent.name}</h1>
-                <h3>email: {filteredStudent.email}</h3>
+                <h1><u>{filteredStudent.name}</u></h1>
+                <h4>email: {filteredStudent.email}</h4>
                 <h4>gpa: {filteredStudent.gpa || 0.0}</h4>
-                <Link to={`/campus/${filteredStudent.campusId}`}>{filteredStudent.campus.name}</Link>
+                <Link to={`/campus/${filteredStudent.campusId}`}>{filteredStudent.campus.name} Campus</Link>
             </div>
         }
         <EditStudents student={filteredStudent && filteredStudent}/>
@@ -34,20 +34,6 @@ const mapStateToProps = (state, ownProps) => {
         campus: state.campus
     }
 }
-
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         getStudents() {
-//             const action = getStudents()
-//             dispatch(action)
-//         },
-//         getCampuses() {
-//             const action = getCampuses()
-//             dispatch(action)
-//         }
-
-//     }
-// }
 
 
 const singleStudentContainer = (connect(mapStateToProps)(SingleStudent))

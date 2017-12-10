@@ -26,16 +26,14 @@ export default class root extends Component {
     return (
     <div>
       <Router>
-        <div>
+        <div className="all">
            <Navbar />
               <switch>
                 <Route exact path="/" component={home} />
                 <Route exact path="/campus" component={AllCampuses}/>
                 <Route path="/campus/:campusId" component={SingleCampus} />
-
                 <Route exact path="/students" component={AllStudents} />
                 <Route path="/students/:studentId" component={SingleStudent} />
-
               </switch>
         </div>
       </Router>

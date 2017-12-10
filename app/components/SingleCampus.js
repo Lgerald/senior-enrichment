@@ -11,14 +11,14 @@ export const SingleCampus = (props) => {
     const filteredCampus = campus
     const filteredStudents = students
     return (
-        <div>
+        <div className="singleCampus">
             {
             filteredCampus && 
             <div className="campusProfile" key={filteredCampus.id}>
-                <h1>{filteredCampus.name} Campus</h1>
+                <h1><u>{filteredCampus.name} Campus</u></h1>
                 <img src={filteredCampus.imageUrl}/>
                 <p>{filteredCampus.description}</p>
-                <h3>{filteredCampus.name} Campus Students:</h3>
+                <h4>{filteredCampus.name} Campus Students:</h4>
                 <ul>
                     {
                     filteredStudents &&

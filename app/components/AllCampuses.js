@@ -15,7 +15,7 @@ export const AllCampuses = (props) => {
                        return (
                             <li key={campus.id}>
                             <Link to={`/campus/${campus.id}`}>{campus.name}</Link>
-                            <button name={campus.id} onClick={deleteCampus}>X</button>
+                            <button name={campus.id} onClick={deleteCampus}>x</button>
                             </li>
                        )
                    }) 

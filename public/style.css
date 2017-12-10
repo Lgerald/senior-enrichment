@@ -1,4 +1,17 @@
-* {
-    box-sizing: border-box;
+
+
+.NavBar, .all, .singleStudent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
+
+.singleCampus {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+
+}
+
 

@@ -7,7 +7,7 @@ export const NewCampusEntry = (props) => {
 
     return (
         <div>
-            <h4>not interested in one of our many campuses? thats cool i guess... start your own!</h4>
+            <h4>Not interested in one of our many campuses? thats cool too! start your own!</h4>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="name" className="col-sm-2 control-label">Campus Name:</label>

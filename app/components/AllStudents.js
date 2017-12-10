@@ -13,7 +13,7 @@ export const AllStudents = (props) => {
                 students.map(student => {
                     return (
                         <li key={student.id}>
-                        <Link to={`/students/${student.id}`}>{student.name}</Link><button name={student.id} onClick={deleteStudent}>X</button>
+                            <Link to={`/students/${student.id}`}>{student.name}</Link><button name={student.id} onClick={deleteStudent}>x</button>
                         </li>
                     )
                 })

@@ -5,9 +5,8 @@ import { withRouter } from 'react-router-dom'
 
 export const studentEdit = (props) => {
     const { campus, handleSubmit, newStudent, handleChange, students } = props
-    console.log("edit props",props)
     return (
-        <div>
+        <div className="singleStudent">
             <h3>Edit this Student:</h3>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
@@ -69,7 +68,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             const lastName = e.target.lastName.value || ownProps.student.lastName
             const email =  e.target.email.value || ownProps.student.email
             const gpa = e.target.gpa.value || ownProps.student.gpa
-                //campusId: Number(newStudent) || ownProps.student.campus.name
             const action = editStudentRequest(ownProps.student.id, {firstName, lastName, email, gpa})
             dispatch(action)
         }, 

@@ -7,7 +7,7 @@ import NewCampusForm from './NewCampusForm'
 export default function home (props) {
 
     return (
-    <div>
+    <div className="home">
         <h1>Kitten Academy</h1>
         <NewStudentsForm />
         <NewCampusForm />
