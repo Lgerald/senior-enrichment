@@ -15,7 +15,6 @@ export const NewCampusEntry = (props) => {
                         className="form-control"
                         name="campusName"
                         placeholder="What should we call me?"
-                        //value={newCampus}
                         onChange={handleChange}
                     />
 
@@ -24,7 +23,6 @@ export const NewCampusEntry = (props) => {
                         className="form-control"
                         name="description"
                         placeholder="tell me about this campus!"
-                        //value={newCampus}
                         onChange={handleChange}
                     />
                 </div>

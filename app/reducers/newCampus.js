@@ -1,4 +1,3 @@
-// import axios from "axios"
 
 export const NEW_CAMPUS = "NEW_CAMPUS"
 

@@ -14,18 +14,14 @@ studentsRouter.get("/", (req,res,next) => {
     .then(students => res.status(200).json(students))
     .catch(next);
 })
+
 // - a student by id
 studentsRouter.get("/:studentId", (req, res ,next) => {
     Students.findById(req.params.studentId, {include: [{all:true}]})
     .then(student => res.status(200).json(student))
     .catch(next)
 })
-/*to properly eager load:
-in another then:
-    return model.findbyid(thing {include {}})
-*/
-// POST
-// - new student //ask about find or create***
+
 studentsRouter.post("/", (req,res,next) =>{
     Students.create({
         firstName: req.body.firstName,
@@ -51,6 +47,6 @@ studentsRouter.delete("/:studentId", (req,res,next) => {
     Students.destroy({where: {id: req.params.studentId}, returning: true})
     .then((numrows, destroyedStudent) => res.json(`you just deleted student ${req.params.studentId}`))
     .catch(next)
-})//to show whats been destoryed, you can refer to whatever on req.body
+})
 
 module.exports = studentsRouter

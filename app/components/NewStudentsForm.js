@@ -17,7 +17,7 @@ export const NewStudentEntry = (props) => {
                     className="form-control"
                     name="firstName"
                     placeholder="first name goes here" 
-                    //value={newStudent}
+                
                 
                 />
             
@@ -26,7 +26,7 @@ export const NewStudentEntry = (props) => {
                     className="form-control"
                     name="lastName"
                     placeholder="last name goes here"
-                    //value={newStudent}
+               
                    
                 />
 
@@ -35,7 +35,7 @@ export const NewStudentEntry = (props) => {
                     className="form-control"
                     name="email"
                     placeholder="email goes here"
-                    //value={newStudent}
+               
            
                 />
                 <label htmlFor="gpa" className="col-sm-2 control-label">GPA:</label>
@@ -43,7 +43,7 @@ export const NewStudentEntry = (props) => {
                     className="form-control"
                     name="gpa"
                     placeholder="gpa goes here"
-                    //value={newStudent}
+        
             
                 />
                 <label htmlFor="campus" >Campus:</label>

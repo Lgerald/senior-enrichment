@@ -56,16 +56,13 @@ export function postCampus(campus) {
     }
 }
 
-export function editCampusRequest(campusId, campus, history) {
+export function editCampusRequest(campusId, campus) {
     return function thunk(dispatch) {
         axios.put(`/api/campus/${campusId}`, campus)
             .then(res => res.data)
             .then(editedCampus => {
-                const action = editCampus(editedCampus)//need a edit action jk cant just get it
-                // could use own props to get id match,.params.id instead
-
+                const action = editCampus(editedCampus)
                 dispatch(action)
-                history.push(`/campus/${editedCampus.id}`)
             })
             .catch(console.error)
     }

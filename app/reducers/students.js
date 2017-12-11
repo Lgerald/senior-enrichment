@@ -60,7 +60,6 @@ export function editStudentRequest(studentId, student) {
             .then(editedStudent => {
                 const action = editStudent(editedStudent)
                 dispatch(action)
-                //history.push(`${editedStudent.id}`)
             })
             .catch(console.error)
     }

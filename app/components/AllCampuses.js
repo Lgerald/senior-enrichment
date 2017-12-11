@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 
 
 export const AllCampuses = (props) => {
-
         const { campus, deleteCampus } = props
         return (
             <div>

@@ -6,8 +6,6 @@ import EditCampus from './EditCampus'
 
 export const SingleCampus = (props) => {
     const { campus, students, deleteStudent } = props
-
-    //const routeId = Number(props.match.params.campusId)
     const filteredCampus = campus
     const filteredStudents = students
     return (

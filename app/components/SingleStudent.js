@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import EditStudents from './EditStudents'
 
 
-
 export const SingleStudent = (props) => {
 
     const { students, campus } = props
